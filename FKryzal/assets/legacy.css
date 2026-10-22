@@ -1,0 +1,303 @@
+.legacy {
+    background: #f4f4f3;
+    color: #252525;
+}
+.legacy-header {
+    background: #111;
+    color: white;
+    padding: 22px 5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid #444;
+}
+.legacy-header .brand {
+    color: white;
+    white-space: nowrap;
+    font:
+        400 26px Georgia,
+        serif;
+}
+.legacy-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.legacy-header nav a {
+    padding: 4px;
+    margin: 0;
+    color: #c8c8c8;
+    font-size: 12px;
+}
+.legacy-header nav a:hover {
+    color: #e4c88d;
+}
+.legacy-main {
+    max-width: 1300px;
+    padding: 40px 5%;
+    margin: auto;
+    min-height: 75vh;
+}
+.legacy-main .content {
+    width: 100%;
+}
+.legacy-main h1,
+.legacy-main h2,
+.legacy-main h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+.container {
+    width: 100%;
+    margin: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card,
+.form-container {
+    background: white;
+    border: 1px solid #d8d8d8;
+    padding: 25px;
+    margin: 20px 0;
+}
+.table {
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #d3d3d3;
+    width: 100%;
+}
+.table th {
+    background: #202020;
+    color: #d1b476;
+    padding: 15px;
+}
+.table td {
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    vertical-align: top;
+    color: #333;
+    background: #fff !important;
+    word-break: normal;
+}
+.table input[type='radio'] {
+    width: 16px;
+    display: inline-block;
+    margin-right: 8px;
+}
+.table button {
+    margin-top: 12px;
+}
+.table-responsive {
+    overflow: auto;
+}
+.table-responsive table {
+    min-width: 780px;
+}
+.legacy-main .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #252525;
+    color: #f2f2f2;
+    border: 1px solid #777;
+    border-radius: 4px;
+    padding: 9px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 5px;
+}
+.legacy-main a.btn {
+    color: #fff;
+}
+.legacy-main .text-dark {
+    color: #252525 !important;
+}
+.legacy-main .text-white {
+    color: #252525 !important;
+}
+.legacy-main .text-success {
+    color: #416842;
+}
+.legacy-main .text-danger {
+    color: #9d3c35;
+}
+.legacy-main .text-center {
+    text-align: center;
+}
+.legacy-main .d-flex {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.legacy-main .justify-content-center {
+    justify-content: center;
+}
+.legacy-main .justify-content-end {
+    justify-content: flex-end;
+}
+.legacy-main .mb-3 {
+    margin-bottom: 18px;
+}
+.legacy-main .mb-4 {
+    margin-bottom: 25px;
+}
+.legacy-main .mt-4 {
+    margin-top: 25px;
+}
+.legacy-main .mt-3 {
+    margin-top: 18px;
+}
+.legacy-main .form-control,
+.legacy-main .form-select {
+    border-radius: 4px;
+}
+.legacy-main .dropdown-menu {
+    list-style: none;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+}
+.legacy-main .pagination {
+    list-style: none;
+    gap: 12px;
+}
+.legacy-main .alert {
+    padding: 18px;
+    background: #f1e9d5;
+    border: 1px solid #d8c79e;
+}
+.legacy-main .gradient-custom,
+.legacy-main .gradient-custom-lightblue {
+    background: #f3ecd9 !important;
+    color: #252525 !important;
+}
+.legacy-footer {
+    background: #171717;
+    color: #999;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.legacy-footer a {
+    color: #d1b476;
+}
+@media (max-width: 700px) {
+    .legacy-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .legacy-main {
+        padding: 25px 4%;
+        overflow-x: auto;
+    }
+    .legacy-main .table {
+        min-width: 750px;
+    }
+    .legacy-main .table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .legacy-header nav a {
+        font-size: 11px;
+    }
+}
+.calendar-pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 25px 0;
+}
+.legacy-main h1 {
+    color: #d1b476;
+}
+.legacy-main input[type='radio'] {
+    appearance: auto;
+    min-width: 18px;
+    max-width: 18px;
+}
+.legacy-main .table td > div {
+    border: 1px solid #d7c69e !important;
+    background: #f6f1e7 !important;
+    border-radius: 4px;
+    margin-top: 10px !important;
+}
+.legacy-main .table input.btn {
+    background: #252525;
+    color: #fff;
+    border: 1px solid #777;
+    display: inline-block;
+    width: auto;
+}
+.legacy-main .table th.text-white {
+    color: #d1b476 !important;
+}
+.legacy-main .calendar-table {
+    table-layout: fixed;
+    min-width: 900px;
+}
+.legacy-main .calendar-table th,
+.legacy-main .calendar-table td {
+    width: 14.285%;
+    border: 1px solid #d9d9d9 !important;
+}
+.legacy-main .calendar-table td > div {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    line-height: 1.5;
+}
+.legacy-main .calendar-table td {
+    height: 75px;
+}
+.legacy-main .calendar-table th {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+}
+.legacy-main .calendar-table h1 {
+    font-size: 30px;
+}
+.legacy-main .calendar-table th:first-child[colspan] {
+    text-align: left;
+}
+.legacy-main .calendar-table button {
+    background: #222;
+    color: #eee;
+    border: 1px solid #777;
+}
+
+.legacy-logout {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.legacy-header {
+    flex-wrap: wrap;
+}
+.legacy-header nav {
+    flex: 1;
+}
+.legacy-logout .logout-button {
+    background: #d4b372;
+    color: #161616;
+    border-color: #d4b372;
+}
+@media (max-width: 700px) {
+    .legacy-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    .legacy-header nav {
+        order: 3;
+        flex-basis: 100%;
+    }
+    .legacy-logout {
+        margin-left: auto;
+    }
+    .legacy-header .brand {
+        font-size: 23px;
+    }
+}

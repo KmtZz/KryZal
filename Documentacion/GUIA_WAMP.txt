@@ -1,0 +1,315 @@
+KRYZAL · INSTALACION Y USO
+
+INSTALACION RAPIDA
+
+1. Extrae TODO el ZIP fuera de www, por ejemplo en el Escritorio.
+2. Abre Instalar_KryZal.exe y acepta el permiso de administrador.
+3. Si detecta Wamp, pulsa ENTER para usarlo. Si esta en otro lugar,
+   escribe la carpeta que contiene wampmanager.exe.
+4. Si no tienes Wamp, pulsa ENTER para instalarlo en C:\wamp64.
+   Se comprueban las dependencias Visual C++ x86/x64. Si faltan,
+   se descarga su instalador y se ejecuta antes de instalar Wamp.
+5. El asistente inicia Wamp, espera a MySQL y prepara KryZal desde cero:
+   elimina la base del proyecto, crea sus tablas y sustituye la carpeta
+   www\FKryzal. No mantiene usuarios ni contenidos anteriores.
+6. Se abre http://localhost/FKryzal/. Introduce nombre, email y
+   contraseña para crear el administrador. Puedes añadir cuentas
+   y clases de prueba en ese mismo formulario. Despues se abre la portada.
+
+CADA EJECUCION DEL INSTALADOR ELIMINA LOS DATOS ANTERIORES DE KRYZAL.
+Para entrar otro dia NO lo ejecutes: abre Wamp y luego la web.
+
+Si falta un reinicio de Windows para completar Visual C++, el asistente
+te lo indicara. Reinicia y vuelve a ejecutarlo.
+
+CONFIGURACION INICIAL
+
+La base predeterminada es kryzal_mejorado. La conexion inicial es
+localhost:3306, usuario root, contraseña vacia. Si tu conexion es
+ distinta, modifica FKryzal\app\config.php en el paquete antes de instalar.
+
+Si ya hay un FKryzal instalado con app\config.php, el asistente utiliza
+su conexion para vaciar y preparar esa misma base. La configuracion
+de correo se reinicia. No borra otras bases ni otras carpetas de www.
+Por seguridad, la base del proyecto debe empezar por kryzal y estar
+en localhost. El asistente usa el PHP de Wamp y no necesita que tengas
+php.exe añadido al PATH.
+
+Las tablas se crean directamente en MySQL. Puedes verlas en phpMyAdmin,
+pero no necesitas importar ningun SQL manualmente.
+
+PRIMERA VEZ
+
+Si la base no tiene usuarios, aparece Crear administrador.
+Nombre: tu nombre o el de quien prueba el proyecto.
+Email: el identificador de tu cuenta.
+Contraseña: minimo 10 caracteres, con mayuscula, minuscula, numero y simbolo.
+Marca Cargar demostración completa si quieres una demostracion.
+
+Administrador: los datos que acabas de elegir.
+Entrenador: maria.lopez@example.com
+Socios: luis.fernandez@example.com y carlos.sanchez@example.com
+Contraseña de las cuentas de prueba: KryzalDemo!7
+
+Si no marcas la opcion de prueba, solo se crea el administrador.
+Puedes registrar socios y cambiar su rol a entrenador desde Usuarios.
+
+ENTRAR OTRO DIA
+
+1. Inicia WampServer y espera al icono verde.
+2. Abre http://localhost/FKryzal/.
+3. Se abre la web del gimnasio. Puedes ver Inicio, Quienes somos y Contacto.
+4. Pulsa Iniciar sesion para entrar con tu cuenta y abrir Mi espacio.
+
+La web consulta si hay usuarios. Si existen, no vuelve a pedir crear
+el administrador. No depende de un archivo installed.lock.
+Ejecutar el instalador otra vez vacia la base y vuelve a empezar.
+Las sesiones anteriores dejan de dar acceso despues de reinstalar.
+
+USO POR TIPO DE CUENTA
+
+Socio:
+- Clases: consulta y reserva sesiones futuras con plazas.
+- Calendario: vista mensual integrada. Cada sesion tiene su boton de reserva.
+  Puedes volver a Tarjetas sin cambiar de seccion.
+- Mis clases: consulta reservas y cancela sesiones futuras.
+- Mi perfil: consulta email, rol y puntos, cambia nombre y contraseña.
+  Sube o elimina tu foto JPG, PNG o WebP de hasta 2 MB; se guarda en MySQL.
+- Clasificacion: ranking de socios activos.
+- Recompensas: canjea premios descontando sus puntos de tu saldo.
+- Mis recompensas: codigos activos, utilizados y caducados.
+  Validez de 30 dias, un solo uso y sin devolucion si caducan.
+
+Entrenador:
+- Mis clases: consulta tus sesiones, gestiona inscritos y completa asistencias.
+  Despliega Nueva clase para crear una sesion futura.
+- Mi perfil: cambia tu especialidad sin salir del diseño de Mi espacio.
+- Ver inscritos: antes del inicio permite retirar alumnos. Despues del
+  inicio exige completar todas las asistencias para archivar la clase.
+- Clases archivadas: sesiones completadas y canceladas.
+- Informe TXT: descarga el listado de inscritos y su asistencia.
+
+Administrador:
+- Usuarios: modifica nombre, rol y activacion de cuentas.
+- Clases: crea, cancela y reasigna clases.
+- Mensajes → Formulario web: lee consultas del formulario publico.
+- Configuracion: escoge correo local o SMTP.
+
+Una asistencia suma 10 puntos y una ausencia resta 10. Guardar el
+mismo estado no repite puntos. Completar la asistencia archiva la clase.
+El administrador valida los codigos desde Validar recompensas.
+No hay sorteos.
+
+WEB PUBLICA
+
+Desde Página principal o el menú público se puede acceder a Inicio,
+Quienes somos y Contacto, con instalaciones, servicios y testimonios.
+El formulario de contacto guarda las consultas para el administrador.
+Las reservas y la gestion requieren iniciar sesion.
+
+RECUPERAR CONTRASEÑA
+
+1. En la pantalla de acceso, pulsa Olvidaste tu contraseña.
+2. Introduce el email de la cuenta.
+3. En modo local, el administrador abre Recuperación de cuentas desde
+   localhost y consulta el enlace generado.
+4. El enlace caduca a los 30 minutos y solo se usa una vez.
+
+Para correo real, el administrador configura SMTP. Con Gmail:
+smtp.gmail.com, puerto 587, STARTTLS y contraseña de aplicacion.
+Los contactos llegan al remitente configurado y se puede responder
+al email del visitante. Si SMTP falla, la consulta queda guardada.
+
+INSTALACION MANUAL SIN EL EJECUTABLE
+
+El asistente es opcional. Si ya tienes Wamp u otro entorno compatible:
+1. Copia solo FKryzal a www. No hace falta ejecutar ningun instalador.
+2. En phpMyAdmin crea kryzal_mejorado con utf8mb4_unicode_ci.
+3. Selecciona esa base e importa FKryzal/sql/schema.sql.
+4. Revisa los datos de conexion en FKryzal/app/config.php.
+5. Abre http://localhost/FKryzal/ y crea el administrador.
+
+La web tambien puede crear las tablas al configurar el administrador.
+La copia manual no crea automaticamente el acceso directo del escritorio.
+Si ya hay datos, no elimines ni importes tablas para actualizar la web:
+consulta el apartado de actualizacion de README.md.
+
+Debe quedar C:\wamp64\www\FKryzal\index.php.
+No copies todo el paquete a www ni crees FKryzal\FKryzal.
+
+ERRORES HABITUALES
+
+Icono naranja o rojo: comprueba qué servicio no arranca y sus registros.
+El asistente no desactiva otros servicios ni cambia sus puertos.
+
+No responde MySQL: revisa Wamp y los datos de app\config.php. El script
+reintenta la conexion durante aproximadamente 90 segundos antes de
+informar del problema.
+
+DLL o Visual C++: revisa los requisitos de Wamp e instala x86 y x64.
+
+404: verifica www\FKryzal\index.php y http://localhost/FKryzal/.
+Los enlaces presuponen Apache en puerto 80 y la carpeta FKryzal.
+
+Descarga incorrecta: no se ejecuta un archivo con hash diferente al
+ esperado. Consulta Documentacion\FUENTES.txt o instala manualmente.
+
+No aparece el administrador: si ya existen usuarios en la base, es
+normal que se abra la web publica con la opcion Iniciar sesion. Ejecuta Instalar_KryZal.exe solo
+si quieres ELIMINAR esos datos y empezar otra vez.
+
+Cada ejecucion deja un registro instalacion-FECHA.log junto al paquete.
+La guia DOCX de DAW se conserva como documento de referencia. Para esta
+instalacion utiliza estas instrucciones y README.md.
+
+Las clases futuras se crean entre 3 y 120 días después de instalar.
+Para actualizar sin borrar datos, consulta README.md: no ejecutes el instalador.
+
+PUNTUACION Y SALDO
+
+La clasificacion usa la puntuacion por actividad. El saldo disponible
+se utiliza para canjear premios. Gastar puntos no reduce tu puntuacion
+ni te hace bajar en el ranking; las asistencias y ausencias si influyen.
+Los canjes anteriores quedan contemplados automaticamente.
+
+MODIFICAR PUNTOS
+
+Administrador: Usuarios > busca al socio > Modificar puntos.
+Puedes cambiar el saldo de recompensas y la puntuacion de clasificacion
+por separado. Confirma Guardar puntos. Los ajustes quedan registrados.
+Si otra operacion ha cambiado los puntos, recarga antes de corregirlos.
+
+NO EXISTE LA UNIDAD D
+
+El instalador comprueba las carpetas y omite las unidades inexistentes.
+Si aparece un error indicando que no existe D:, extrae de nuevo el paquete
+actualizado y sustituye tanto el ejecutable como la carpeta Instalador.
+No necesitas crear una unidad D: ni cambiar las unidades del equipo.
+
+Mi perfil es la primera opcion del menu. Tambien puedes abrirlo pulsando
+tu nombre en la esquina inferior izquierda. Pagina principal abre la web
+publica. El filtro Mostrar y el buscador de Clases conservan la consulta
+al alternar tarjetas y calendario.
+
+GESTION DE ACCESO
+En Usuarios, el administrador puede modificar el email y restablecer una
+contraseña temporal. No se borran datos ni reservas. Cambiar el correo o
+restablecer la contraseña cierra sesiones y anula enlaces de recuperacion.
+No activa automaticamente una cuenta deshabilitada.
+Las claves nuevas exigen minimo 10 caracteres, mayuscula, minuscula, numero
+y simbolo. El primer acceso muestra los requisitos y obliga al cambio.
+
+ACCESO DIRECTO E ICONO
+El instalador crea KryZal.lnk en el escritorio común de Windows con el
+logotipo del proyecto. El lanzador y el icono se guardan en la subcarpeta
+kryzal de Wamp. El acceso diario abre la web y no ejecuta la instalación.
+
+PERFIL Y CLASIFICACIÓN
+Pulsa tu foto o inicial para elegir una imagen y ver la previsualización.
+Guardar foto actualiza el avatar. Los tres primeros puestos del ranking
+utilizan distintivos dorado, plateado y bronce.
+
+
+INFORMES DE CLASES
+Las clases archivadas con asistencia completada permiten descargar un informe TXT que indica cuándo se archivó la clase y la asistencia de cada alumno. En las clases pendientes se descarga únicamente el listado de inscritos, identificado como pendiente y sin resultados de asistencia. Las canceladas indican la cancelación y conservan el listado de inscritos.
+
+
+GESTIÓN DE CLASES
+Los controles permiten elegir próximas y pendientes o clases archivadas, cambiar entre tarjetas y calendario, y buscar sesiones. Nueva clase despliega el formulario de creación. Para reasignar una sesión futura, el administrador despliega Cambiar entrenador en Clases o la ficha de la sesión, selecciona uno y pulsa Guardar entrenador. Las reservas se conservan.
+
+
+ARCHIVO, RECOMPENSAS Y CONSULTAS
+Clases archivadas se abre dentro de Clases mediante
+su pestaña. Configuración está al final del menú de administración.
+Validar recompensas incluye un historial con búsqueda por socio, correo,
+premio o código, filtros de tipo y estado, y datos de canje y validación.
+Mensajes → Formulario web permite abrir una consulta y responder. En modo local
+solo se guarda la respuesta. Con SMTP configurado se envía al visitante.
+Las respuestas guardadas o fallidas pueden enviarse después de configurar
+el correo. El historial distingue guardadas, enviadas y fallidas.
+
+
+DEMOSTRACIÓN COMPLETA
+La casilla inicial genera 150 socios, 8 entrenadores y 2 administradores
+adicionales, salvo coincidencias de correo con la cuenta inicial.
+Incluye unas 800 clases, histórico de seis semanas y cuatro meses futuros,
+reservas, clases completas, archivadas con asistencias y canceladas.
+Los puntos se contabilizan: +10 por asistir, -10 por faltar y 0 si se cancela.
+El historial del alumno y los informes archivados muestran esos puntos.
+Se generan recompensas activas, usadas y caducadas, 48 consultas, 36
+respuestas y 24 mensajes de Recuperación de cuentas. Los estados de correo se simulan:
+no se envía ningún mensaje externo. Todos los correos son de example.com.
+Las cuentas generadas usan KryzalDemo!7. Administradores adicionales:
+admin.irati@example.com y admin.aitor@example.com. El administrador inicial
+conserva su contraseña. El listado de cuentas está en README.md.
+Sin marcar la casilla, se crea únicamente el administrador inicial.
+
+
+RESERVAS Y COMUNICACIÓN
+Mis clases separa Próximas y Archivadas para los socios. La cancelación de
+una reserva requiere al menos 2 horas de antelación. La clasificación está
+paginada y permite ir directamente a la posición propia. Los códigos de
+recompensas activos incluyen Copiar.
+
+La foto o inicial del entrenador en una clase abre su tarjeta. Los socios
+inscritos pueden contactarle desde ahí. La petición conserva la clase y su
+fecha. Mensajes reúne conversaciones abiertas y cerradas, permite
+responder y reabrirlas, e indica los mensajes sin leer. Los entrenadores
+reciben las dudas en Mensajes → Recibidas y pueden consultar a Administración.
+El administrador recibe peticiones de socios y equipo, con filtros por rol.
+Estas conversaciones funcionan dentro de KryZal, sin correo externo.
+
+Mensajes → Formulario web recoge las consultas sin sesión iniciada. Se distingue
+el correo de visitantes del que coincide con una cuenta, sin verificar la
+identidad de quien lo envía. Las respuestas externas necesitan SMTP.
+
+Recuperación de cuentas solo contiene copias locales de correos de recuperación.
+Permite buscar por persona, ver la vigencia, copiar un enlace y generar otro
+nuevo. El nuevo anula los anteriores y dura 30 minutos. Para probarlo, ábrelo
+en una ventana privada o sin sesión. No se envía ningún email en modo local.
+La demostración incluye 44 peticiones de socios y equipo con conversaciones.
+
+
+LISTADOS Y ESTADOS
+La paginación está encima y debajo de los resultados. Ir a mi posición
+abre la página propia, incluso con empates. Los puntos iguales comparten
+puesto: por ejemplo, 1, 1, 3. El saldo para premios no cambia por esto.
+Las clases sin plazas muestran Aforo completo y fondo gris. Una reserva ya
+existente se puede cancelar si aún cumple el plazo de 2 horas.
+En el historial y calendario del socio, Asistió se muestra en verde y
+No asistió en rojo. Las canceladas permanecen neutras, sin puntos.
+Copiar un código muestra una marca de verificación y ¡Código copiado!.
+
+NUEVA PETICIÓN
+Administración aparece como destinatario predeterminado. Buscar destinatario
+permite encontrar un entrenador por nombre o especialidad y seleccionarlo.
+No hace falta tener una reserva para una consulta general. Si se abre desde
+una reserva, conserva la clase y su entrenador. Para elegir otra persona,
+utiliza Elegir otro destinatario sin asociar una clase.
+
+AVISOS Y AGENDA
+El punto del menú indica avisos: mensajes sin leer, asistencias pendientes
+y próximas clases de hoy. Resumen reúne los avisos. Clases de hoy filtra
+la agenda del socio y del entrenador; Todos los días recupera el listado.
+
+ARCHIVO Y ASISTENCIA
+El archivo empieza por la última sesión archivada o cancelada.
+En Ver registro, el administrador o el entrenador asignado puede
+Desarchivar una asistencia completada. Se revierten los puntos anteriores
+y se revisa de nuevo la asistencia antes de guardar. La operación queda
+registrada. No permite reabrir clases canceladas.
+Al abrir o usar la web se cancelan las clases que ya han empezado y no
+tienen inscritos. No se aplican puntos. Sin visitas, la comprobación queda
+pendiente hasta el siguiente acceso. Las sesiones futuras siguen abiertas.
+
+PETICIONES
+La etiqueta Socio, Entrenador o Administrador identifica quién inicia la
+petición. Los mensajes siguen siendo internos de KryZal.
+
+Usuarios ofrece filtros rápidos Todos, Socios, Entrenadores y Administradores. Se combinan con la búsqueda y la ordenación por nombre o fecha de inscripción, disponible en Ordenar. Cambiar de rol vuelve a la primera página y conserva la búsqueda y el orden.
+
+AGENDA DEL ENTRENADOR
+El menú Clases reúne Por gestionar, Completar asistencia, Gestionar alumnos y
+Archivadas. Mis clases es la agenda inicial. Todo el gimnasio muestra próximas
+sesiones generales, conservando los permisos de gestión de cada entrenador.
+En Usuarios, Intro o la lupa buscan y el selector de orden se aplica directamente.

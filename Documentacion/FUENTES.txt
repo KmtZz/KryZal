@@ -1,0 +1,32 @@
+FUENTES DE LOS INSTALADORES
+
+WampServer y requisitos:
+https://wampserver.aviatechno.net/?lang=en
+https://wampserver.aviatechno.net/?lang=en&prerequis=afficher
+
+WampServer 3.4.0 x64, instalacion completa:
+https://wampserver.aviatechno.net/files/install/wampserver3.4.0_x64.exe
+SHA-256:
+08BC458ACB5974E3F93857C234C4DAF72DA8A4DA842B736C1424D98B475E4FCD
+Suma consultada en el manifiesto de Microsoft WinGet:
+https://github.com/microsoft/winget-pkgs/blob/master/manifests/w/Wampserver/Wampserver/3.4.0/Wampserver.Wampserver.installer.yaml
+
+VisualCppRedist AIO x86/x64, v0.106.0, de abbodi1406:
+https://github.com/abbodi1406/vcredist/releases/tag/v0.106.0
+https://github.com/abbodi1406/vcredist/releases/download/v0.106.0/VisualCppRedist_AIO_x86_x64.exe
+SHA-256 publicado por el proyecto:
+ED4F4FE7E72F3A03B1C377F145DDBB93CD52CC6672095EB4EB334EF3F98D6998
+Este es un paquete de terceros recomendado en la web de Wamp.
+Incluye los runtimes Visual C++ x86 y x64. Se usa su modo /y,
+que muestra progreso. Wamp requiere los runtimes antes de instalar.
+Documentacion del paquete y opciones:
+https://github.com/abbodi1406/vcredist
+
+PHPMailer, biblioteca incluida procedente del proyecto original:
+https://github.com/PHPMailer/PHPMailer
+Licencia LGPL 2.1; consultar los encabezados de sus archivos.
+
+Los binarios externos se descargan al ejecutar el asistente. No se
+redistribuyen dentro de este ZIP. No se ejecuta una descarga que no
+coincida con la suma indicada. Las versiones estan fijadas para que
+una actualizacion de terceros no cambie silenciosamente el instalador.
