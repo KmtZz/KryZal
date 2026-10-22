@@ -4,12 +4,12 @@
 
 <h1 align="center">KryZal</h1>
 
-<p align="center">Reservas, entrenamiento y gestión del gimnasio en una misma aplicación.</p>
+<p align="center">Aplicación web para gestionar las clases y reservas de un gimnasio.</p>
 <p align="center"><strong>PHP 8 · MySQL / MariaDB · MVC · JavaScript · CSS</strong></p>
 
 ![Portada de KryZal](Documentacion/capturas/portada.png)
 
-Aplicación web desarrollada como proyecto final del ciclo de **Desarrollo de Aplicaciones Web**. Incluye una web pública y espacios de trabajo para socios, entrenadores y administración.
+Desarrollé KryZal como proyecto final de **Desarrollo de Aplicaciones Web**. Tiene una web pública y una zona privada para socios, entrenadores y administradores.
 
 [Manual en PDF](Documentacion/Guia_de_uso_KryZal.pdf) · [Guía en PowerPoint](Documentacion/Guia_de_uso_KryZal.pptx) · [Estructura del código](Documentacion/ESTRUCTURA_CODIGO.md)
 
@@ -23,9 +23,9 @@ Aplicación web desarrollada como proyecto final del ciclo de **Desarrollo de Ap
 
 La asistencia suma o resta puntos. La puntuación de clasificación y el saldo para recompensas se gestionan por separado. El historial conserva las clases completadas y canceladas, con sus informes.
 
-Las reservas impiden ocupar dos clases a la misma fecha y hora. Cuando existe un conflicto, **Ver mi reserva** abre la sesión que ya ocupa ese horario.
+No se pueden reservar dos clases en la misma fecha y hora. Si ya tienes una reserva, el botón **Ver mi reserva** te lleva a esa clase.
 
-## Un espacio para cada perfil
+## Capturas de la aplicación
 
 ### Socios
 
@@ -35,7 +35,7 @@ Resumen de actividad, próximas reservas y saldo disponible.
 
 ### Entrenadores
 
-Agenda con accesos por tarea: gestionar alumnos, completar asistencia y consultar el archivo.
+Clases del entrenador, con opciones para gestionar alumnos, registrar la asistencia y consultar las clases archivadas.
 
 ![Agenda del entrenador](Documentacion/capturas/entrenador.png)
 
@@ -100,7 +100,7 @@ Estas cuentas utilizan la contraseña **`KryzalDemo!7`**. La cuenta inicial de a
 | `Instalador/` | Asistente y acceso del escritorio para Windows. |
 | `Documentacion/` | Manuales, capturas y referencia del proyecto. |
 
-Las consultas utilizan PDO con parámetros. Los formularios validan CSRF y permisos en el servidor. Las contraseñas se almacenan con hash. Las conversaciones y las fotos respetan los permisos de acceso de las cuentas.
+Las consultas utilizan PDO con parámetros. Los formularios validan CSRF y permisos en el servidor. Las contraseñas se almacenan con hash.
 
 Para ampliar la instalación y el funcionamiento, consulta la [referencia del proyecto](Documentacion/REFERENCIA.md) y la [guía de Wamp](Documentacion/GUIA_WAMP.txt).
 
